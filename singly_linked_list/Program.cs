@@ -42,13 +42,18 @@ namespace singly_linked_list
                     Console.WriteLine("\nNomor mahasiswa sama tidak di izinkan");
 
                 }
+                nodeBaru.next = START;
+                START = nodeBaru;
+                return;
 
-
-                }
             }
-
+            //Menemukan lokasi node baru didalam list
+            Node previous, current;
+            previous = START;
         }
+
     }
+}
     class Program
     {
         static void Main(string[] args)
