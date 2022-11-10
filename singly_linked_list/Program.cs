@@ -15,6 +15,20 @@ namespace singly_linked_list
     class List
     {
         Node START;
+        public List()
+        {
+            START = null;
+        }
+        //Method untuk menambahkan sebuah node ke dalam list
+
+        public void addNote()
+        {
+            int nim;
+            string nm;
+            Console.WriteLine("\nMasukkan nomor Mahasiswa:");
+            nim = Convert.ToInt32(Console.ReadLine());
+
+        }
     }
     class Program
     {
