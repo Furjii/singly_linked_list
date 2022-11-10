@@ -52,7 +52,7 @@ namespace singly_linked_list
             previous = START;
             current = START;
 
-            while((current != null) && (nim >= current.noMhs))
+            while ((current != null) && (nim >= current.noMhs))
             {
                 if (nim == current.noMhs)
                 {
@@ -64,12 +64,65 @@ namespace singly_linked_list
                 current = current.next;
             }
             //Node baru akan ditempatkan di antara previous dan current
+            nodeBaru.next = current;
+            previous.next = nodeBaru;
+        }
+        // Method untuk menhapus node tertentu 
+        public bool delNode(int nim)
+        {
+            Node previous,current;
+            previous = current = null;
+            //check apakah node yang dimaksud ada di dalam list atau tidak
+            if (Search(nim, ref previous, ref current) == false)
+                return false;
+            previous.next = current.next;
+            if (current == START)
             
+                START = START.next;
+                return true;
+            
+        }
+        //Method untuk meng-check apakah node yang di maksud ada di dalam list atau tidak
+        public bool Search(int nim, ref Node previous, ref Node current)
+        {
+            previous = current;
+            while ((current != null) && (nim >= current.noMhs))
+            {
+                previous = current;
+                current = current.next;
+            }
+            if (current == null)
+                return (false);
+            else
+                return (true);
+        }
+        //Method untuk treverse /mengunjungi dan membaca isi list
+        public void treverse()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList kosong:");
+            else
+            {
+                Console.WriteLine("/nData di dalam list adalah :");
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next)
+                    Console.WriteLine(currentNode.noMhs + " " + currentNode.nama + "\n");
+                Console.WriteLine();
+            }
+
+        }
+        public bool listEmpty()
+        {
+            if (START == null)
+                return true;
+            else
+                return false;
         }
 
     }
 }
-    class Program
+    
+class Program
     {
         static void Main(string[] args)
         {
